@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+class queueDataStructure
+{
+  public:
+  int arr[10];
+  int front = 0;
+  int rear = -1;
+  void enqueue(int var);
+  void dequeue();
+  void peek();
+};
+void queueDataStructure::enqueue(int var)
+{
+    if (rear>10)
+        cout << "queue is full"<<endl;
+    else{
+       cout << "inserting into queue"<<var<<endl;
+       rear++;
+       arr[rear] = var;
+    }
+}
+void queueDataStructure::dequeue()
+{
+    if (front<0)
+        cout << "nothing in queue to delete"<<endl;
+    else{
+    cout << "deleting a value from queue"<<endl;
+    front++;
+    }
+}
+void queueDataStructure::peek()
+{
+    cout<<"printing values avaialble in queue"<<endl;
+    for (int i=front;i<=rear;i++)
+        cout << arr[i]<<endl;
+}
+int main()
+{
+    queueDataStructure obj;
+    obj.enqueue(10);
+    obj.enqueue(20);
+    obj.enqueue(30);
+    obj.peek();
+    obj.dequeue();
+    obj.peek();
+
+    return 0;
+}
