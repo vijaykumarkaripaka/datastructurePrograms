@@ -4,8 +4,8 @@ using namespace std;
 class linked
 {
     public:
-    int data;
-    linked * next;
+       int data;
+       linked * next;
 };
 linked *head;
 
