@@ -1,0 +1,68 @@
+//insertion and deletion of a parrticular node using linked-list datastructure in c++ style
+#include <iostream>
+using namespace std;
+class linked
+{
+    public:
+    int data;
+    linked * next;
+};
+linked *head;
+
+void insert(int number, int position)
+{
+    linked *node1 = new linked();
+    node1->data = number;
+    node1->next = nullptr;
+    if (position == 1)
+    {
+        node1->next = head;
+        head = node1;
+        return;
+    }
+    
+    linked *node2 = head;
+    for (int i=0;i<position-2;i++)
+        node2 = node2->next;
+    node1->next = node2->next;
+    node2->next = node1;
+}
+void deletel(int position)
+{
+    linked *node1 = head;
+    if(position == 1)
+    {
+        head = node1->next;
+        free(node1);
+        return;
+    }
+    
+    for (int i=0;i<position-2;i++)
+        node1 = node1->next;
+    linked *node2 = node1->next;
+    node1->next = node2->next;
+    free(node2);
+}
+void print()
+{
+    linked *node = head;
+    while(node!=nullptr)
+    {
+        cout << node->data<<endl;
+        node = node->next;
+    }
+}
+int main()
+{
+    head = nullptr;
+    insert(1,1);
+    insert(1,2);
+    insert(3,3);
+    insert(1,4);
+    insert(1100,5);
+    insert(1,6);
+    //print();
+    deletel(6);
+    print();
+    return 0;
+}
