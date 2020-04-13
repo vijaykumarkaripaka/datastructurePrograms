@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+};
+//head node to keep track of nodes
+struct node *head = nullptr;
+void insertAtBegining(int x)
+{
+    node *temp = (node*)malloc(sizeof(node));
+    temp->data = x;
+    temp->next = nullptr;
+    if (head != nullptr) 
+        temp->next = head;
+    head = temp;
+}
+void print()
+{
+    struct node *temp = head;
+    while(temp != nullptr)
+    {
+        cout << "value : "<<temp->data<<endl;
+        temp = temp->next;
+    }
+}
+int main()
+{
+    insertAtBegining(1);
+    insertAtBegining(2);
+    insertAtBegining(3);
+    insertAtBegining(4);
+    insertAtBegining(10);
+    print();
+    return 0;
+}
+
+output:
+value : 10                                                                                                              
+value : 4                                                                                                               
+value : 3                                                                                                               
+value : 2                                                                                                               
+value : 1  
