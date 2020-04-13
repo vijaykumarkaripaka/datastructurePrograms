@@ -5,7 +5,7 @@ struct node
     int data;
     node* next;
 };
-//to keep head node
+//head node to point at first node
 struct node *head = nullptr;
 //to monitor and add node at end of every node
 struct node *addEnd = nullptr;
