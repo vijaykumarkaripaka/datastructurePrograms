@@ -43,3 +43,10 @@ int main()
     print();
     return 0;
 }
+
+output:
+value : 1                                                                                                             
+value : 2                                                                                                             
+value : 3                                                                                                             
+value : 4                                                                                                             
+value : 10  
