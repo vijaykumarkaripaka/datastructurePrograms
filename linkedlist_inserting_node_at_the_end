@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+};
+//to keep head node
+struct node *head = nullptr;
+//to monitor and add node at end of every node
+struct node *addEnd = nullptr;
+void insertAtEnd(int x)
+{
+    node* temp = (node*)malloc(sizeof(node));
+    temp->data = x;
+    temp->next = nullptr;
+    if(head == nullptr)
+       head = temp;
+    if(addEnd == nullptr)
+       addEnd = temp;
+    else
+    {
+       addEnd->next = temp;
+       addEnd = temp;
+    }
+}
+void print()
+{
+    struct node *temp = head;
+    while(temp != nullptr)
+    {
+        cout << "value : "<<temp->data<<endl;
+        temp = temp->next;
+    }
+}
+int main()
+{
+    insertAtEnd(1);
+    insertAtEnd(2);
+    insertAtEnd(3);
+    insertAtEnd(4);
+    insertAtEnd(10);
+    print();
+    return 0;
+}
