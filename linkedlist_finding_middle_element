@@ -1,0 +1,64 @@
+//find middle element in a linked list
+//example:list has 1 2 3 4 5 and middle element is 3
+//example:list has 1 2 3 4 5 6 and need to print 2nd middle element i.e., 4
+//used c++ compiler
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head = nullptr;
+int count = 0;
+void insertAtTheBegining(int value)
+{
+    node *node1 = (node*)(malloc(sizeof(node)));
+    node1->data = value;
+    node1->next = nullptr;
+    if (head != nullptr)
+        node1->next = head;
+    head = node1;
+}
+void printLinkedList()
+{
+    struct node *temp = head;
+    while(temp!=nullptr)
+    {
+        cout << temp->data<<" ";
+        temp = temp->next;
+        ++count;
+    }
+    cout << "count is "<<count<<endl;
+}
+void middleElement(int value)
+{
+    struct node *temp = head;
+    int count1 = 0;
+    while(temp!=nullptr)
+    {
+        temp = temp->next;
+        ++count1;
+        if (count1 == value)
+            cout << "middle value is " <<temp->data;
+    }
+}
+int main()
+{
+    insertAtTheBegining(6);
+    insertAtTheBegining(5);
+    insertAtTheBegining(4);
+    insertAtTheBegining(3);
+    insertAtTheBegining(2);
+    insertAtTheBegining(1);
+    printLinkedList();
+    count = count/2;
+    cout <<"middle element to find "<<count<<endl;
+
+    middleElement(count);
+    return 0;
+}
+output:
+1 2 3 4 5 6 count is 6                                                                                                
+middle element to find 3                                                                                              
+middle value is 4
