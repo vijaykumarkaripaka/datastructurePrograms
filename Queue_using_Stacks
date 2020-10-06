@@ -1,0 +1,53 @@
+//queue using stacks
+#include <iostream>
+#include <stack>
+using namespace std;
+
+stack<int> s1,s2;
+void push(int val)
+{
+	while(!s1.empty())
+	{
+		s2.push(s1.top());
+		s1.pop();
+	}
+	s1.push(val);
+	while(!s2.empty())
+	{
+		s1.push(s2.top());
+		s2.pop();
+	}
+}
+void pop()
+{
+	if(s1.empty())
+		cout << "queue is empty"<<endl;
+	else
+	{
+	    int x = s1.top();
+	    s1.pop();
+		cout << "element removing is " << x <<endl;
+	}
+}
+void showqueue()
+{
+    stack<int> temp = s1;
+    while(!temp.empty())
+    {
+        cout << temp.top() << " ";
+        temp.pop();
+    }
+    cout << endl;
+}
+int main()
+{
+	push(10);
+	push(20);
+	push(30);
+	push(40);
+	showqueue();
+	pop();
+	showqueue();
+	
+	return 0;
+}
